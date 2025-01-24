@@ -43,6 +43,10 @@ The **Employee Management System** is a desktop application built with **JavaFX*
 - **IntelliJ IDEA** (or any Java IDE)
 - **XAMPP** (for MySQL)
 
+### To log in when running the application
+Username : admin
+password : admin
+
 ### Steps to Run
 1. Clone this repository:
    ```bash
