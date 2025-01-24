@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.EmployeeController"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #bbdefb);">
+    <children>
+        <!-- Center VBox for Main Content -->
+        <VBox alignment="CENTER" spacing="20" prefWidth="800" prefHeight="600"
+              style="-fx-padding: 20px; -fx-background-color: #FFFFFF; -fx-border-color: #90CAF9; -fx-border-width: 2px; -fx-border-radius: 10px;"
+              AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0"
+              AnchorPane.topAnchor="50.0" AnchorPane.bottomAnchor="50.0">
+
+            <!-- Title -->
+            <Label text="Employee Management System - Employees"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1976D2;" />
+
+            <!-- Search Bar -->
+            <HBox alignment="CENTER" spacing="10">
+                <ComboBox fx:id="searchComboBox" prefWidth="150" promptText="Search by"
+                          style="-fx-font-size: 14px;">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="ID" />
+                            <String fx:value="Name" />
+                            <String fx:value="Position" />
+                            <String fx:value="Department" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefWidth="400"
+                           promptText="Enter search term"
+                           style="-fx-font-size: 14px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-radius: 5px;" />
+                <Button onAction="#handleClear" text="Clear"
+                        style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+            </HBox>
+
+            <!-- Employee Table -->
+            <TableView fx:id="employeeTable" prefHeight="350" prefWidth="760">
+                <columns>
+                    <TableColumn fx:id="idColumn" prefWidth="150" text="Employee ID" />
+                    <TableColumn fx:id="nameColumn" prefWidth="200" text="Name" />
+                    <TableColumn fx:id="positionColumn" prefWidth="150" text="Position" />
+                    <TableColumn fx:id="departmentColumn" prefWidth="150" text="Department" />
+                    <TableColumn fx:id="contractExpiryColumn" prefWidth="150" text="Contract Expiry" />
+                </columns>
+            </TableView>
+
+            <!-- CRUD Buttons -->
+            <HBox alignment="CENTER" spacing="15">
+                <Button fx:id="addButton" onAction="#handleAdd" text="Add Employee"
+                        style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+                <Button fx:id="editButton" onAction="#handleEdit" disable="true" text="Edit Employee"
+                        style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+                <Button fx:id="deleteButton" onAction="#handleDelete" disable="true" text="Delete Employee"
+                        style="-fx-background-color: #D32F2F; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+                <Button fx:id="viewProfileButton" onAction="#handleViewProfile" disable="true" text="View Profile"
+                        style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+            </HBox>
+
+            <!-- Back Button -->
+            <Button onAction="#goBack" text="Back"
+                    style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" />
+        </VBox>
+    </children>
+</AnchorPane>
+

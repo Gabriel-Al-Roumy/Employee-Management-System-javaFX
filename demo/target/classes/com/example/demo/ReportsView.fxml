@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.demo.ReportsViewController"
+            style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #bbdefb);">
+    <children>
+        <HBox spacing="30" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0"
+              AnchorPane.topAnchor="50.0" AnchorPane.bottomAnchor="50.0">
+
+            <!-- Column for Buttons and Descriptions -->
+            <VBox alignment="CENTER_LEFT" spacing="20" prefWidth="300" prefHeight="600"
+                  style="-fx-padding: 20px; -fx-background-color: #FFFFFF; -fx-border-color: #90CAF9; -fx-border-width: 2px; -fx-border-radius: 10px;">
+
+                <!-- Title -->
+                <Label text="Reports"
+                       style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1976D2;" />
+
+                <!-- Salary Report Button -->
+                <Button fx:id="salaryReportButton" text="Salary Report"
+                        style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;"
+                        onAction="#generateSalaryReport" />
+                <TextFlow>
+                    <Text style="-fx-font-size: 14px;">Summarizes salary data, including total payroll, average salary, and salary distribution by department or position.</Text>
+                </TextFlow>
+
+                <!-- Contract Expiry Report Button -->
+                <Button fx:id="contractExpiryReportButton" text="Contract Expiry Report"
+                        style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;"
+                        onAction="#generateContractExpiryReport" />
+                <TextFlow>
+                    <Text style="-fx-font-size: 14px;">Shows employees with expiring contracts within a certain period.</Text>
+                </TextFlow>
+
+                <!-- Employment Status Report Button -->
+                <Button fx:id="employmentStatusReportButton" text="Employment Status Report"
+                        style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;"
+                        onAction="#generateEmploymentStatusReport" />
+                <TextFlow>
+                    <Text style="-fx-font-size: 14px;">Provides a summary of the number of active, on leave, and resigned employees.</Text>
+                </TextFlow>
+
+                <!-- Gender Diversity Report Button -->
+                <Button fx:id="genderDiversityReportButton" text="Gender Diversity Report"
+                        style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;"
+                        onAction="#generateGenderDiversityReport" />
+                <TextFlow>
+                    <Text style="-fx-font-size: 14px;">Provides statistics on gender distribution across departments or the company.</Text>
+                </TextFlow>
+
+            </VBox>
+
+            <!-- Column for TextArea displaying report -->
+            <VBox prefWidth="500" prefHeight="600"
+                  style="-fx-padding: 20px; -fx-background-color: #FFFFFF; -fx-border-color: #90CAF9; -fx-border-width: 2px; -fx-border-radius: 10px;">
+                <!-- TextArea for Reports -->
+                <TextArea fx:id="reportDisplayArea"
+                          style="-fx-font-size: 14px; -fx-pref-width: 450px; -fx-pref-height: 600px; -fx-border-color: #90CAF9; -fx-border-width: 1px; -fx-border-radius: 5px;"
+                          editable="false" wrapText="true" />
+            </VBox>
+
+        </HBox>
+
+        <!-- Back Button -->
+        <Button onAction="#goBack" text="Back"
+                style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;"
+                AnchorPane.leftAnchor="50.0" AnchorPane.bottomAnchor="20.0" />
+    </children>
+</AnchorPane>

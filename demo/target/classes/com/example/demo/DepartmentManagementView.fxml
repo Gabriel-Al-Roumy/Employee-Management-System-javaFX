@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="600" prefWidth="885.0" style="-fx-background-color: linear-gradient(to bottom, #e3f2fd, #bbdefb);" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.DepartmentManagementController">
+    <children>
+        <!-- Title -->
+        <Label layoutX="200" layoutY="20" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1976D2;" text="Department Management System" />
+
+        <!-- Search Bar -->
+        <HBox layoutX="50" layoutY="80" spacing="10">
+            <!-- Search TextField -->
+            <TextField fx:id="searchField" onKeyReleased="#handleSearch" prefWidth="500" promptText="Search by Name" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-border-color: #cccccc; -fx-border-radius: 5px;" />
+            <!-- Search Button -->
+            <Button onAction="#handleSearch" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" text="Search">
+                <tooltip>
+                    <Tooltip text="Click to search for departments by name" />
+                </tooltip>
+            </Button>
+            <!-- Clear Button -->
+            <Button onAction="#handleClear" style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 10px 20px; -fx-border-radius: 5px;" text="Clear">
+                <tooltip>
+                    <Tooltip text="Click to clear the search field" />
+                </tooltip>
+            </Button>
+        </HBox>
+
+        <!-- Sorting ComboBox -->
+        <HBox layoutX="50" layoutY="120" spacing="10" />
+
+        <!-- Department Table -->
+        <TableView fx:id="departmentTable" layoutX="50.0" layoutY="150" prefHeight="350" prefWidth="806.0">
+            <columns>
+                <TableColumn fx:id="departmentIdColumn" prefWidth="210.39998626708984" text="Department ID" />
+                <TableColumn fx:id="departmentNameColumn" prefWidth="362.4000549316406" text="Department Name" />
+                <TableColumn fx:id="numEmployeesColumn" prefWidth="235.20001220703125" text="Number of Employees" />
+            </columns>
+        </TableView>
+
+        <!-- CRUD Buttons -->
+        <HBox alignment="CENTER" layoutX="50" layoutY="500" spacing="20">
+            <Button fx:id="addButton" onAction="#handleAdd" style="-fx-background-color: #1976D2; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 12px 25px; -fx-border-radius: 5px;" text="Add Department">
+                <tooltip>
+                    <Tooltip text="Click to add a new department" />
+                </tooltip>
+            </Button>
+            <Button fx:id="deleteButton" disable="true" onAction="#handleDelete" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 12px 25px; -fx-border-radius: 5px;" text="Delete Department">
+                <tooltip>
+                    <Tooltip text="Click to delete the selected department" />
+                </tooltip>
+            </Button>
+            <Button fx:id="viewButton" disable="true" onAction="#handleView" style="-fx-background-color: #2196F3; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 12px 25px; -fx-border-radius: 5px;" text="View Department">
+                <tooltip>
+                    <Tooltip text="Click to view the selected department details" />
+                </tooltip>
+            </Button>
+        </HBox>
+
+        <!-- Back Button -->
+        <Button layoutX="50" layoutY="550" onAction="#goBack" style="-fx-background-color: #cccccc; -fx-text-fill: black; -fx-font-size: 16px; -fx-font-weight: bold; -fx-padding: 12px 25px; -fx-border-radius: 5px;" text="Back">
+            <tooltip>
+                <Tooltip text="Click to return to the previous screen" />
+            </tooltip>
+        </Button>
+    </children>
+</AnchorPane>
